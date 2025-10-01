@@ -12,12 +12,19 @@
 -- GROUP BY u.account
 -- HAVING balance > 10000
 
-with tmp as(
-select t.account, u.name, sum(amount) as balance
-from Transactions t
-left join Users u on t.account = u.account
-group by account )
+-- with tmp as(
+-- select t.account, u.name, sum(amount) as balance
+-- from Transactions t
+-- left join Users u on t.account = u.account
+-- group by account )
 
-select name, balance
-from tmp
-where balance > 10000
+-- select name, balance
+-- from tmp
+-- where balance > 10000
+
+SELECT name, SUM(amount) as balance
+FROM Transactions
+LEFT JOIN Users
+ON Users.account = Transactions.account
+GROUP BY name
+HAVING balance > 10000;
