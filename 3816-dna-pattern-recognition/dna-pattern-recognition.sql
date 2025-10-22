@@ -26,4 +26,4 @@ case when dna_sequence like '%TAA' then 1
      else 0 end as has_stop,
 case when dna_sequence like '%ATAT%' then 1 else 0 end as has_atat,
 case when dna_sequence like '%GGG%' then 1 else 0 end as has_ggg
-from samples;
+from samples
